@@ -140,27 +140,31 @@
     <h3>Contact Details</h3>
 
     <div class="form-group">
-      <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required data-error="Please enter your name">
-      <div class="help-block with-errors"></div>
-    </div>
+  <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required data-error="Please enter your name">
+  <div class="help-block with-errors"></div>
+</div>
 
-    <div class="form-group">
-      <input type="email" placeholder="Your Email" id="email" class="form-control" name="email" required data-error="Please enter your email">
-      <div class="help-block with-errors"></div>
-    </div>
+<div class="form-group">
+  <input type="email" placeholder="Your Email" id="email" class="form-control" name="email" required data-error="Please enter your email">
+  <div class="help-block with-errors"></div>
+</div>
 
-    <div class="form-group">
-      <input type="tel" placeholder="Your Phone Number" id="phone" class="form-control" name="phone" required data-error="Please enter your phone number">
-      <div class="help-block with-errors"></div>
-    </div>
+<div class="form-group">
+  <input type="tel" placeholder="Your Phone Number" id="phone" class="form-control" name="phone" required data-error="Please enter your phone number">
+  <div class="help-block with-errors"></div>
+</div>
 
-    <div class="submit-button text-center">
-      <button class="btn btn-common" id="submit" type="submit">Send Message</button>
-      <div id="msgSubmit" class="h3 text-center hidden"></div>
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</form>
+<!-- New message field with placeholder -->
+<div class="form-group">
+  <textarea class="form-control" id="message" name="message" rows="5" placeholder="Your Message" required data-error="Please enter your message"></textarea>
+  <div class="help-block with-errors"></div>
+</div>
+
+<div class="submit-button text-center">
+  <button class="btn btn-common" id="submit" type="submit">Send Message</button>
+  <div id="msgSubmit" class="h3 text-center hidden"></div>
+  <div class="clearfix"></div>
+</div>
 
 			</div>
 			<!-- Floating Social Media Buttons -->
