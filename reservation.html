@@ -153,25 +153,35 @@
               </div>
 
               <!-- Contact Form Section -->
-              <form action="https://formsubmit.co/njugunaa61@gmail.com" method="POST">
-                <div class="col-md-6">
-                    <h3>Contact Details</h3>
+<form action="https://formsubmit.co/njugunaa61@gmail.com" method="POST">
+  <div class="col-md-6">
+    <h3>Contact Details</h3>
 
-                 <div class="form-group">
-                  <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required> </div>
+    <div class="form-group">
+      <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
+    </div>
 
-                 <div class="form-group">
-                  <input type="email" placeholder="Your Email" id="email" class="form-control" name="email" required> </div>
+    <div class="form-group">
+      <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required>
+    </div>
 
-                  <div class="form-group">
-                  <input type="tel" placeholder="Your Phone Number" id="phone" class="form-control" name="phone" required></div>
+    <div class="form-group">
+      <input type="tel" class="form-control" id="phone" name="phone" placeholder="Your Phone Number" required>
+    </div>
 
-                 <div class="submit-button text-center">
-                <button class="btn btn-common" id="submit" type="submit">Book Now</button>
-                 </div>
-                </div>
-              </form>
-              
+    <!-- Optional: redirect to a thank-you page after form submission -->
+    <!input type="hidden" name="_next" value="thank-you.html">
+
+    <!-- Optional: disable CAPTCHA (FormSubmit adds one by default) -->
+    <!input type="hidden" name="_captcha" value="false">
+
+    <div class="submit-button text-center">
+      <button class="btn btn-common" id="submit" name="submit" type="submit">Book Now</button>
+    </div>
+  </div>
+</form>
+
+
             </div>
           </form>
         </div>
