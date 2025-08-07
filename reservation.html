@@ -16,39 +16,39 @@
 
   <style>
      .floating-socials {
-  position: absolute;
-  top: 100px;
-  right: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  z-index: 999;
-}
+      position: absolute;
+      top: 100px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 999;
+    }
 
-.floating-socials a {
-  width: 45px;
-  height: 45px;
-  background-color: #333;
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  font-size: 20px;
-  transition: transform 0.3s ease, background-color 0.3s ease;
-}
+    .floating-socials a {
+      width: 45px;
+      height: 45px;
+      background-color: #333;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 20px;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
 
-/* Brand Colors */
-.floating-socials a:nth-child(1) { background-color: #25D366; } /* WhatsApp */
-.floating-socials a:nth-child(2) { background-color: #3b5998; } /* Facebook */
-.floating-socials a:nth-child(3) { background-color: #E4405F; } /* Instagram */
-.floating-socials a:nth-child(4) { background-color: #FF5A5F; } /* Airbnb */
-.floating-socials a:nth-child(5) { background-color: #003580; } /* Booking.com */
+    /* Brand Colors */
+    .floating-socials a:nth-child(1) { background-color: #25D366; } /* WhatsApp */
+    .floating-socials a:nth-child(2) { background-color: #3b5998; } /* Facebook */
+    .floating-socials a:nth-child(3) { background-color: #E4405F; } /* Instagram */
+    .floating-socials a:nth-child(4) { background-color: #FF5A5F; } /* Airbnb */
+    .floating-socials a:nth-child(5) { background-color: #003580; } /* Booking.com */
 
-.floating-socials a:hover {
-  transform: scale(1.1);
-}
+    .floating-socials a:hover {
+      transform: scale(1.1);
+    }
   </style>
 </head>
 <body>
@@ -83,21 +83,12 @@
 
       <!-- Floating Social Icons -->
       <div class="floating-socials">
-  <!-- WhatsApp -->
-  <a href="https://wa.me/25722722393" target="_blank"><i class="fa fa-whatsapp"></i></a>
-  
-  <!-- Facebook -->
-  <a href="https://facebook.com/lemookbotanical" target="_blank"><i class="fa fa-facebook"></i></a>
-  
-  <!-- Instagram -->
-  <a href="https://instagram.com/lemookgarden" target="_blank"><i class="fa fa-instagram"></i></a>
-  
-  <!-- Airbnb -->
-  <a href="https://www.airbnb.com/rooms/1435456082439519254" target="_blank"><i class="fa fa-home"></i></a>
-  
-  <!-- Booking.com -->
-  <a href="https://www.booking.com/" target="_blank"><i class="fa fa-bed"></i></a>
-</div>
+        <a href="https://wa.me/25722722393" target="_blank"><i class="fa fa-whatsapp"></i></a>
+        <a href="https://facebook.com/lemookbotanical" target="_blank"><i class="fa fa-facebook"></i></a>
+        <a href="https://instagram.com/lemookgarden" target="_blank"><i class="fa fa-instagram"></i></a>
+        <a href="https://www.airbnb.com/rooms/1435456082439519254" target="_blank"><i class="fa fa-home"></i></a>
+        <a href="https://www.booking.com/" target="_blank"><i class="fa fa-bed"></i></a>
+      </div>
     </div>
   </nav>
 </header>
@@ -117,67 +108,59 @@
 <div class="reservation-box">
   <div class="container">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-lg-12">
         <div class="contact-block">
-          <form id="contactForm">
+          <!-- CORRECTED: Single form tag with action and method -->
+          <form action="https://formsubmit.co/njugunaa61@gmail.com" method="POST">
             <div class="row">
-              <!-- Book Now Section -->
+              <!-- Booking Details -->
               <div class="col-md-6">
                 <h3>Book Now</h3>
-
                 <div class="form-group">
                   <label for="checkin_date">Check-in Date</label>
-                  <input id="checkin_date" class="datepicker picker__input form-control" name="checkin" type="text" readonly required data-error="Please enter Check-in date">
+                  <input id="checkin_date" class="datepicker picker__input form-control" name="checkin_date" type="text" readonly required data-error="Please enter Check-in date">
                   <div class="help-block with-errors"></div>
                 </div>
 
                 <div class="form-group">
                   <label for="checkout_date">Check-out Date</label>
-                  <input id="checkout_date" class="datepicker picker__input form-control" name="checkout" type="text" readonly required data-error="Please enter Check-out date">
+                  <input id="checkout_date" class="datepicker picker__input form-control" name="checkout_date" type="text" readonly required data-error="Please enter Check-out date">
                   <div class="help-block with-errors"></div>
                 </div>
 
                 <div class="form-group">
                   <label for="event">Event</label>
-                  <select class="custom-select d-block form-control" id="event" required data-error="Please select Event">
-                    <option disabled selected>Select Event*</option>
-                    <option value="1">Weddings</option>
-                    <option value="2">Accommodation</option>
-                    <option value="3">Private Events</option>
-                    <option value="4">Grounds Hire</option>
-                    <option value="5">Team Building</option>
-                    <option value="6">Corporate Events & Meetings</option>
+                  <select class="custom-select d-block form-control" id="event" name="event" required data-error="Please select Event">
+                    <option value="" disabled selected>Select Event*</option>
+                    <option value="Weddings">Weddings</option>
+                    <option value="Accommodation">Accommodation</option>
+                    <option value="Private Events">Private Events</option>
+                    <option value="Grounds Hire">Grounds Hire</option>
+                    <option value="Team Building">Team Building</option>
+                    <option value="Corporate Events & Meetings">Corporate Events & Meetings</option>
                   </select>
                   <div class="help-block with-errors"></div>
                 </div>
               </div>
 
-<!-- Contact Form Section -->
-  <form action="https://formsubmit.co/njugunaa61@gmail.com" method="POST">
-  <div class="col-md-6"> 
-    <h3>Contact Details</h3>
-
-    <div class="form-group">
-      <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
-    </div>
-
-    <div class="form-group">
-      <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required>
-    </div>
-
-    <div class="form-group">
-      <input type="tel" class="form-control" id="phone" name="phone" placeholder="Your Phone Number" required>
-    </div>
-
-    <div class="submit-button text-center">
-      <button class="btn btn-common" type="submit">Book Now</button>
-    </div>
-  </div>
-</form>
-
-
-
-
+              <!-- Contact Details -->
+              <div class="col-md-6">
+                <h3>Contact Details</h3>
+                <div class="form-group">
+                  <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                  <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                  <input type="tel" class="form-control" id="phone" name="phone" placeholder="Your Phone Number" required>
+                </div>
+                <div class="submit-button text-center">
+                  <button class="btn btn-common" type="submit">Book Now</button>
+                </div>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>
@@ -244,7 +227,7 @@
   </div>
   <div class="copyright">
     <div class="container text-center">
-      <p class="company-name">All Rights Reserved. &copy; 2025 <a href="#">Lemook Gardens</a> Design by 
+      <p class="company-name">All Rights Reserved. &copy; 2025 <a href="#">Lemook Gardens</a> Design by
         <a href="https://www.trisecuresolutions.co.ke/">TriSecure Solutions</a></p>
     </div>
   </div>
@@ -266,27 +249,25 @@
     // Date picker logic
     $('#checkin_date').pickadate({
       format: 'yyyy-mm-dd',
-      min: true,
+      min: true, // Disallow past dates
       onSet: function (context) {
         if (context.select) {
-          var checkin = new Date(context.select);
-          checkin.setDate(checkin.getDate() + 1);
-          $('#checkout_date').pickadate('picker').set('min', checkin);
+          var checkinDate = new Date(context.select);
+          // Set the minimum checkout date to be one day after the check-in date
+          checkinDate.setDate(checkinDate.getDate() + 1);
+          var picker = $('#checkout_date').pickadate('picker');
+          picker.set('min', checkinDate);
         }
       }
     });
 
     $('#checkout_date').pickadate({
       format: 'yyyy-mm-dd',
-      min: true
+      min: true // Disallow past dates
     });
 
-    // Show confirmation modal on form submit
-    $('#contactForm').on('submit', function (e) {
-      e.preventDefault();
-      $('#confirmationModal').modal('show');
-      this.reset();
-    });
+    // CORRECTED: The conflicting submit handler has been removed.
+    // The form will now submit normally.
   });
 </script>
 </body>
