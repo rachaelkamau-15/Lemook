@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en"><!-- Basic -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">   
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lemook Gardens</title>  
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">    
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="css/style.css">    
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+
+    <style>
+     .floating-socials {
+  position: absolute;
+  top: 100px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 999;
+}
+
+.floating-socials a {
+  width: 45px;
+  height: 45px;
+  background-color: #333;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 20px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Brand Colors */
+.floating-socials a:nth-child(1) { background-color: #25D366; } /* WhatsApp */
+.floating-socials a:nth-child(2) { background-color: #3b5998; } /* Facebook */
+.floating-socials a:nth-child(3) { background-color: #E4405F; } /* Instagram */
+.floating-socials a:nth-child(4) { background-color: #FF5A5F; } /* Airbnb */
+.floating-socials a:nth-child(5) { background-color: #003580; } /* Booking.com */
+
+.floating-socials a:hover {
+  transform: scale(1.1);
+}
+    
+    #calendar {
+        max-width: 100%;
+    }
+    .booked {
+        background-color: orange !important;
+        color: white !important;
+    }
+    .calendar-col {
+        max-width: 600px;
+        margin: auto;
+    }
+    .price-tag {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        z-index: 10;
+        font-weight: bold;
+        font-size: 16px;
+        background-color: #d65106;
+        color: #fff;
+        padding: 6px 12px;
+        border-radius: 4px;
+    }
+    </style>
+</head>
+
+<body>
+    <!-- Start header -->
+    <header class="top-navbar">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="images/logo.jpeg" alt="Logo" width="250" />
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-rs-food" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbars-rs-food">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Services</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown-a">
+                                <a class="dropdown-item" href="reservation.html">Reservation</a>
+                                <a class="dropdown-item" href="events.html">Events</a>
+                                <a class="dropdown-item" href="gallery.html">Gallery</a>
+                                <a class="dropdown-item" href="accomodation.html">Accomodation</a>
+                                <a class="dropdown-item" href="restaurant.html">Restaurant</a>
+                            </div>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Floating Social Media Buttons -->
+            <div class="floating-socials">
+  <!-- WhatsApp -->
+  <a href="https://wa.me/25722722393" target="_blank"><i class="fa fa-whatsapp"></i></a>
+  
+  <!-- Facebook -->
+  <a href="https://facebook.com/lemookbotanical" target="_blank"><i class="fa fa-facebook"></i></a>
+  
+  <!-- Instagram -->
+  <a href="https://instagram.com/lemookgarden" target="_blank"><i class="fa fa-instagram"></i></a>
+  
+  <!-- Airbnb -->
+  <a href="https://www.airbnb.com/rooms/1435456082439519254" target="_blank"><i class="fa fa-home"></i></a>
+  
+  <!-- Booking.com -->
+  <a href="https://www.booking.com/" target="_blank"><i class="fa fa-bed"></i></a>
+</div>
+        </nav>
+    </header>
+    <!-- End header -->
+
+    <!-- Start All Pages -->
+    <div class="all-page-title page-breadcrumb">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Accomodation</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End All Pages -->
+
+    <!-- Room Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="heading-title text-center">
+                        <p>Our accommodations offer the perfect blend of comfort, convenience, and style. Whether you're here to relax, explore, or attend a special event. Enjoy thoughtfully designed spaces that feel just like home, with all the essentials you need for a restful stay.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-4">
+                <!-- Each room block starts here -->
+                <!-- Example Room (repeat and customize as needed) -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="room-item shadow rounded overflow-hidden">
+                        <div class="position-relative">
+                            <img class="img-fluid" src="images/bed.jpg" alt="">
+                            <small class="price-tag">$100/Night</small>
+                        </div>
+                        <div class="p-4 mt-2">
+                            <div class="d-flex justify-content-between mb-3">
+                                <h5 class="mb-0">Self-Contained Bamboo Huts</h5>
+                                <div class="ps-2">
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                </div>
+                            </div>
+                            <div class="d-flex mb-3">
+                                <small class="border-end me-3 pe-3"><i class="fa fa-bed text-primary me-2"></i>1Bed</small>
+                                <small class="border-end me-3 pe-3"><i class="fa fa-bath text-primary me-2"></i>&Shower</small>
+                                <small><i class="fa fa-wifi text-primary me-2"></i>Wifi</small>
+                                <small><i class="fa fa-lock text-primary me-2"></i>Safe</small>
+                                <small><i class="fa fa-bolt text-primary me-2"></i>Electricity</small>
+                            </div>
+                            <p class="text-body mb-3">Unwind in our charming bamboo huts, featuring king-size beds, 24/7 room service for a truly comfortable and serene stay.</p>
+                            <div class="d-flex justify-content-between">
+                                <a class="btn btn-sm btn-dark rounded py-2 px-4" href="reservation.html">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="room-item shadow rounded overflow-hidden">
+                        <div class="position-relative">
+                            <img class="img-fluid" src="images/tentbed.jpeg" alt="">
+                            <small class="price-tag">$100/Night</small>
+                        </div>
+                        <div class="p-4 mt-2">
+                            <div class="d-flex justify-content-between mb-3">
+                                <h5 class="mb-0">1-2 People Tent</h5>
+                                <div class="ps-2">
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                </div>
+                            </div>
+                            <div class="d-flex mb-3">
+                                <small class="border-end me-3 pe-3"><i class="fa fa-bed text-primary me-2"></i>1Bed</small>
+                                <small class="border-end me-3 pe-3"><i class="fa fa-bath text-primary me-2"></i>&Shower</small>
+                                <small><i class="fa fa-wifi text-primary me-2"></i>Wifi</small>
+                                <small><i class="fa fa-lock text-primary me-2"></i>Safe</small>
+                                <small><i class="fa fa-bolt text-primary me-2"></i>Electricity</small>
+                            </div>
+                            <p class="text-body mb-3">Enjoy the great outdoors with ease in our high-quality, ready-set tents, perfect for camping getaways and starlit events.</p>
+                            <div class="d-flex justify-content-between">
+                                <a class="btn btn-sm btn-dark rounded py-2 px-4" href="reservation.html">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="room-item shadow rounded overflow-hidden">
+                        <div class="position-relative">
+                            <img class="img-fluid" src="images/Standardcabin.jpg" alt="">
+                            <small class="price-tag">$100/Night</small>
+                        </div>
+                        <div class="p-4 mt-2">
+                            <div class="d-flex justify-content-between mb-3">
+                                <h5 class="mb-0">2-4 People Standard </h5>
+                                <div class="ps-2">
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                </div>
+                            </div>
+                            <div class="d-flex mb-3">
+                                <small class="border-end me-3 pe-3"><i class="fa fa-bed text-primary me-2"></i>1Bed</small>
+                                <small class="border-end me-3 pe-3"><i class="fa fa-bath text-primary me-2"></i>&Shower</small>
+                                <small><i class="fa fa-wifi text-primary me-2"></i>Wifi</small>
+                                <small><i class="fa fa-lock text-primary me-2"></i>Safe</small>
+                                <small><i class="fa fa-bolt text-primary me-2"></i>Electricity</small>
+                            </div>
+                            <p class="text-body mb-3">Step into hassle-free adventure with our fully set-up tents, where comfort meets the wild.</p>
+                            <div class="d-flex justify-content-between">
+                                <a class="btn btn-sm btn-dark rounded py-2 px-4" href="reservation.html">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="room-item shadow rounded overflow-hidden">
+                        <div class="position-relative">
+                            <img class="img-fluid" src="images/woodencabin.jpg" alt="">
+                            <small class="price-tag">$100/Night</small>
+                        </div>
+                        <div class="p-4 mt-2">
+                            <div class="d-flex justify-content-between mb-3">
+                                <h5 class="mb-0">2-4 People Wooden Cabins</h5>
+                                <div class="ps-2">
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                </div>
+                            </div>
+                            <div class="d-flex mb-3">
+                                <small class="border-end me-3 pe-3"><i class="fa fa-bed text-primary me-2"></i>1Bed</small>
+                                <small class="border-end me-3 pe-3"><i class="fa fa-bath text-primary me-2"></i>&Shower</small>
+                                <small><i class="fa fa-wifi text-primary me-2"></i>Wifi</small>
+                                <small><i class="fa fa-lock text-primary me-2"></i>Safe</small>
+                                <small><i class="fa fa-bolt text-primary me-2"></i>Electricity</small>
+                            </div>
+                            <p class="text-body mb-3">Unwind in our charming bamboo huts, featuring king-size beds, 24/7 room service for a truly comfortable and serene stay.</p>
+                            <div class="d-flex justify-content-between">
+                                <a class="btn btn-sm btn-dark rounded py-2 px-4" href="reservation.html">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="room-item shadow rounded overflow-hidden">
+                        <div class="position-relative">
+                            <img class="img-fluid" src="images/2people_tent.jpg" alt="">
+                            <small class="price-tag">$100/Night</small>
+                        </div>
+                        <div class="p-4 mt-2">
+                            <div class="d-flex justify-content-between mb-3">
+                                <h5 class="mb-0">3-4 People Tent</h5>
+                                <div class="ps-2">
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                </div>
+                            </div>
+                            <div class="d-flex mb-3">
+                                <small class="border-end me-3 pe-3"><i class="fa fa-bed text-primary me-2"></i>1Bed</small>
+                                <small class="border-end me-3 pe-3"><i class="fa fa-bath text-primary me-2"></i>&Shower</small>
+                                <small><i class="fa fa-wifi text-primary me-2"></i>Wifi</small>
+                                <small><i class="fa fa-lock text-primary me-2"></i>Safe</small>
+                                <small><i class="fa fa-bolt text-primary me-2"></i>Electricity</small>
+                            </div>
+                            <p class="text-body mb-3">Unplug and unwind with our ready-to-enjoy tents and amenities;your perfect base for starry nights, open skies, and wild-hearted adventures.</p>
+                            <div class="d-flex justify-content-between">
+                                <a class="btn btn-sm btn-dark rounded py-2 px-4" href="reservation.html">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="room-item shadow rounded overflow-hidden">
+                        <div class="position-relative">
+                            <img class="img-fluid" src="images/2people_tent.jpg" alt="">
+                            <small class="price-tag">$100/Night</small>
+                        </div>
+                        <div class="p-4 mt-2">
+                            <div class="d-flex justify-content-between mb-3">
+                                <h5 class="mb-0">4-8 People Tent</h5>
+                                <div class="ps-2">
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                </div>
+                            </div>
+                            <div class="d-flex mb-3">
+                                <small class="border-end me-3 pe-3"><i class="fa fa-bed text-primary me-2"></i>1Bed</small>
+                                <small class="border-end me-3 pe-3"><i class="fa fa-bath text-primary me-2"></i>&Shower</small>
+                                <small><i class="fa fa-wifi text-primary me-2"></i>Wifi</small>
+                                <small><i class="fa fa-lock text-primary me-2"></i>Safe</small>
+                                <small><i class="fa fa-bolt text-primary me-2"></i>Electricity</small>
+                            </div>
+                            <p class="text-body mb-3">Sleep under the stars without sacrificing comfort;our premium tents and curated amenities offer the perfect blend of nature and luxury for your next outdoor escape.</p>
+                            <div class="d-flex justify-content-between">
+                                <a class="btn btn-sm btn-dark rounded py-2 px-4" href="reservation.html">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Room End -->
+
+    <!-- Start Contact info -->
+    <div class="contact-imfo-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 arrow-right">
+                    <i class="fa fa-volume-control-phone"></i>
+                    <div class="overflow-hidden">
+                        <h4>Phone</h4>
+                        <p class="lead">+254 722 722 393</p>
+                    </div>
+                </div>
+                <div class="col-md-4 arrow-right">
+                    <i class="fa fa-envelope"></i>
+                    <div class="overflow-hidden">
+                        <h4>Email</h4>
+                        <p class="lead">info@lemookgardens.com</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <i class="fa fa-map-marker"></i>
+                    <div class="overflow-hidden">
+                        <h4>Location</h4>
+                        <p class="lead">Kapseret, Eldoret, Kenya</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Contact info -->
+
+    <!-- Start Footer -->
+    <footer class="footer-area bg-f">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <h3>About Us</h3>
+                    <p>Lemook Gardens, we believe in creating more than just a stay - we curate experiences that soothe the soul and inspire connection.</p>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h3>Socials</h3>
+                    <ul class="list-inline f-social">
+                        <li class="list-inline-item"><a href="https://www.facebook.com/lemookbotanical"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li class="list-inline-item"><a href="https://www.airbnb.com/rooms/1435456082439519254"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+                        <li class="list-inline-item"><a href="http://booking.com/"><i class="fa fa-bed" aria-hidden="true"></i></a></li>
+                        <li class="list-inline-item"><a href="https://www.threads.com/@lemookgarden"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h3>Contact information</h3>
+                    <p class="lead">Kapseret, Eldoret, Kenya</p>
+                    <p class="lead"><a href="#">+254 722 722 393</a></p>
+                    <p><a href="#"> info@lemookgardens.com</a></p>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h3>Opening hours</h3>
+                    <p>We are Open 24 hours from Monday to Sunday</p>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p class="company-name">All Rights Reserved. &copy; 2025 <a href="#">Lemook Gardens</a> Design By : <a href="https://www.trisecuresolutions.co.ke/">TriSecure Solutions</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+    <a href="#" id="back-to-top" title="Back to top"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></a>
+
+    <!-- JS -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.superslides.min.js"></script>
+    <script src="js/images-loded.min.js"></script>
+    <script src="js/isotope.min.js"></script>
+    <script src="js/baguetteBox.min.js"></script>
+    <script src="js/form-validator.min.js"></script>
+    <script src="js/contact-form-script.js"></script>
+    <script src="js/custom.js"></script>
+</body>
+</html>
