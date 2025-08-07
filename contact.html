@@ -135,37 +135,39 @@
 					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-lg-12">
-					<form id="contactForm">
-						<div class="row">
-							<div class="col-md-12">
-								<div class="form-group">
-									<input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required data-error="Please enter your name">
-									<div class="help-block with-errors"></div>
-								</div>                                 
-							</div>
-							<div class="col-md-12">
-								<div class="form-group">
-									<input type="text" placeholder="Your Email" id="email" class="form-control" name="name" required data-error="Please enter your email">
-									<div class="help-block with-errors"></div>
-								</div> 
-							</div>
-		
-							<div class="col-md-12">
-								<div class="form-group"> 
-									<textarea class="form-control" id="message" placeholder="Your Message" rows="4" data-error="Write your message" required></textarea>
-									<div class="help-block with-errors"></div>
-								</div>
-								<div class="submit-button text-center">
-									<button class="btn btn-common" id="submit" type="submit">Send Message</button>
-									<div id="msgSubmit" class="h3 text-center hidden"></div> 
-									<div class="clearfix"></div> 
-								</div>
-							</div>
-						</div>            
-					</form>
-				</div>
+			<form action="https://formsubmit.co/el/beloso" method="POST">
+  <div class="col-md-6">
+    <h3>Contact Details</h3>
+
+    <div class="form-group">
+      <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required data-error="Please enter your name">
+      <div class="help-block with-errors"></div>
+    </div>
+
+    <div class="form-group">
+      <input type="email" placeholder="Your Email" id="email" class="form-control" name="email" required data-error="Please enter your email">
+      <div class="help-block with-errors"></div>
+    </div>
+
+    <div class="form-group">
+      <input type="tel" placeholder="Your Phone Number" id="phone" class="form-control" name="phone" required data-error="Please enter your phone number">
+      <div class="help-block with-errors"></div>
+    </div>
+
+    <!-- Optional: Disable CAPTCHA -->
+    <input type="hidden" name="_captcha" value="false">
+
+    <!-- Redirect to thank-you page after submission -->
+    <input type="hidden" name="_next" value="https://lemookgardens.netlify.app/thank-you.html">
+
+    <div class="submit-button text-center">
+      <button class="btn btn-common" id="submit" type="submit">Book Now</button>
+      <div id="msgSubmit" class="h3 text-center hidden"></div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</form>
+
 			</div>
 			<!-- Floating Social Media Buttons -->
 <div class="floating-socials">
