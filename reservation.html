@@ -155,6 +155,7 @@
                 <div class="form-group">
                   <input type="tel" class="form-control" id="phone" name="phone" placeholder="Your Phone Number" required>
                 </div>
+                 <input type="hidden" name="_next" value="https://lemookgardens.netlify.app/thank.html">
                 <div class="submit-button text-center">
                   <button class="btn btn-common" type="submit">Book Now</button>
                 </div>
@@ -266,8 +267,6 @@
       min: true // Disallow past dates
     });
 
-    // CORRECTED: The conflicting submit handler has been removed.
-    // The form will now submit normally.
   });
 </script>
 </body>
