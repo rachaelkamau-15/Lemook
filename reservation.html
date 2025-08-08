@@ -155,7 +155,10 @@
                 <div class="form-group">
                   <input type="tel" class="form-control" id="phone" name="phone" placeholder="Your Phone Number" required>
                 </div>
-                 <input type="hidden" name="_next" value="https://lemookgardens.netlify.app/thank.html">
+                 <!-- Skip CAPTCHA -->
+                          <input type="hidden" name="_captcha" value="false">
+                   <!-- Redirect after submission -->
+                          <input type="hidden" name="_next" value="https://lemookgardens.netlify.app/thank.html">
                 <div class="submit-button text-center">
                   <button class="btn btn-common" type="submit">Book Now</button>
                 </div>
