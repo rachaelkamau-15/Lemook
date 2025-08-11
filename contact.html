@@ -32,39 +32,57 @@
     <![endif]-->
     <style>
      .floating-socials {
-  position: absolute;
-  top: 100px;
-  right: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  z-index: 999;
-}
+      position: absolute;
+      top: 100px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 999;
+    }
 
-.floating-socials a {
-  width: 45px;
-  height: 45px;
-  background-color: #333;
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  font-size: 20px;
-  transition: transform 0.3s ease, background-color 0.3s ease;
-}
+    .floating-socials a {
+      width: 45px;
+      height: 45px;
+      background-color: #333;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 20px;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
 
-/* Brand Colors */
-.floating-socials a:nth-child(1) { background-color: #25D366; } /* WhatsApp */
-.floating-socials a:nth-child(2) { background-color: #3b5998; } /* Facebook */
-.floating-socials a:nth-child(3) { background-color: #E4405F; } /* Instagram */
-.floating-socials a:nth-child(4) { background-color: #FF5A5F; } /* Airbnb */
-.floating-socials a:nth-child(5) { background-color: #003580; } /* Booking.com */
+    /* Brand Colors */
+    .floating-socials a:nth-child(1) { background-color: #25D366; } /* WhatsApp */
+    .floating-socials a:nth-child(2) { background-color: #3b5998; } /* Facebook */
+    .floating-socials a:nth-child(3) { background-color: #E4405F; } /* Instagram */
+    .floating-socials a:nth-child(4) { background-color: #FF5A5F; } /* Airbnb */
+    .floating-socials a:nth-child(5) { background-color: #003580; } /* Booking.com */
 
-.floating-socials a:hover {
-  transform: scale(1.1);
-}
+    .floating-socials a:hover {
+      transform: scale(1.1);
+    }
+
+    /* Popup Message Style */
+    .popup {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 15px 25px;
+      background-color: #333;
+      color: white;
+      border-radius: 8px;
+      z-index: 10000;
+      display: none;
+      font-family: sans-serif;
+      font-size: 16px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: top 0.3s ease, opacity 0.3s ease;
+    }
   </style>
 
 </head>
@@ -135,60 +153,56 @@
 					</div>
 				</div>
 			</div>
-			 <form action="https://formsubmit.co/njugunaa61@gmail.com" method="POST">
-			 	<!-- Skip CAPTCHA -->
-                          <input type="hidden" name="_captcha" value="false">
-         <!-- Redirect after submission -->
-                          <input type="hidden" name="_next" value="https://lemookgardens.netlify.app/thank.html">
-  <div class="col-md-6">
-    <h3>CONTACT DETAILS</h3>
+			<form id="contact-form" action="https://formsubmit.co/ajax/njugunaa61@gmail.com" method="POST">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3>CONTACT DETAILS</h3>
 
-    <div class="form-group">
-  <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required data-error="Please enter your name">
-  <div class="help-block with-errors"></div>
-</div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required data-error="Please enter your name">
+                            <div class="help-block with-errors"></div>
+                        </div>
 
-<div class="form-group">
-  <input type="email" placeholder="Your Email" id="email" class="form-control" name="email" required data-error="Please enter your email">
-  <div class="help-block with-errors"></div>
-</div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" id="email" class="form-control" name="email" required data-error="Please enter your email">
+                            <div class="help-block with-errors"></div>
+                        </div>
 
-<div class="form-group">
-  <input type="tel" placeholder="Your Phone Number" id="phone" class="form-control" name="phone" required data-error="Please enter your phone number">
-  <div class="help-block with-errors"></div>
-</div>
+                        <div class="form-group">
+                            <input type="tel" placeholder="Your Phone Number" id="phone" class="form-control" name="phone" required data-error="Please enter your phone number">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h3>MESSAGE</h3>
+                        <div class="form-group">
+                            <textarea class="form-control" id="message" name="message" rows="8" placeholder="Your Message" required data-error="Please enter your message"></textarea>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                </div>
+                 <!-- Skip CAPTCHA -->
+                <input type="hidden" name="_captcha" value="false">
 
-<!-- New message field with placeholder -->
-<div class="form-group">
-  <textarea class="form-control" id="message" name="message" rows="5" placeholder="Your Message" required data-error="Please enter your message"></textarea>
-  <div class="help-block with-errors"></div>
-</div>
-
-<div class="submit-button text-center">
-  <button class="btn btn-common" id="submit" type="submit">Send Message</button>
-  <div id="msgSubmit" class="h3 text-center hidden"></div>
-  <div class="clearfix"></div>
-</div>
-
-			</div>
+                <div class="submit-button text-center">
+                    <button class="btn btn-common" id="submit" type="submit">Send Message</button>
+                    <div id="msgSubmit" class="h3 text-center hidden"></div>
+                    <div class="clearfix"></div>
+                </div>
+            </form>
 			<!-- Floating Social Media Buttons -->
-<div class="floating-socials">
-  <!-- WhatsApp -->
-  <a href="https://wa.me/25722722393" target="_blank"><i class="fa fa-whatsapp"></i></a>
-  
-  <!-- Facebook -->
-  <a href="https://facebook.com/lemookbotanical" target="_blank"><i class="fa fa-facebook"></i></a>
-  
-  <!-- Instagram -->
-  <a href="https://instagram.com/lemookgarden" target="_blank"><i class="fa fa-instagram"></i></a>
-  
-  <!-- Airbnb -->
-  <a href="https://www.airbnb.com/rooms/1435456082439519254" target="_blank"><i class="fa fa-home"></i></a>
-  
-  <!-- Booking.com -->
-  <a href="https://www.booking.com/" target="_blank"><i class="fa fa-bed"></i></a>
-</div>
-
+            <div class="floating-socials">
+              <!-- WhatsApp -->
+              <a href="https://wa.me/25722722393" target="_blank"><i class="fa fa-whatsapp"></i></a>
+              <!-- Facebook -->
+              <a href="https://facebook.com/lemookbotanical" target="_blank"><i class="fa fa-facebook"></i></a>
+              <!-- Instagram -->
+              <a href="https://instagram.com/lemookgarden" target="_blank"><i class="fa fa-instagram"></i></a>
+              <!-- Airbnb -->
+              <a href="https://www.airbnb.com/rooms/1435456082439519254" target="_blank"><i class="fa fa-home"></i></a>
+              <!-- Booking.com -->
+              <a href="https://www.booking.com/" target="_blank"><i class="fa fa-bed"></i></a>
+            </div>
 		</div>
 	</div>
 	<!-- End Contact -->
@@ -273,6 +287,8 @@
 		
 	</footer>
 	<!-- End Footer -->
+
+    <div id="popup-message" class="popup"></div>
 	
 	<a href="#" id="back-to-top" title="Back to top" style="display: none;"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></a>
 
@@ -303,5 +319,55 @@
 			]
 		});	
 	</script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('contact-form');
+            const popup = document.getElementById('popup-message');
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                
+                const formData = new FormData(form);
+                const object = {};
+                formData.forEach((value, key) => {
+                    object[key] = value;
+                });
+                const json = JSON.stringify(object);
+
+                popup.textContent = 'Sending...';
+                popup.style.backgroundColor = '#d65106'; // Orange
+                popup.style.display = 'block';
+
+                fetch(form.action, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: json
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success === 'true' || data.success === true) {
+                        popup.textContent = 'Message sent successfully!';
+                        popup.style.backgroundColor = '#2ecc71'; // Green
+                        form.reset();
+                    } else {
+                        throw new Error('Server responded with an error.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    popup.textContent = 'An error occurred. Please try again.';
+                    popup.style.backgroundColor = '#e74c3c'; // Red
+                })
+                .finally(() => {
+                    setTimeout(() => {
+                        popup.style.display = 'none';
+                    }, 1000);
+                });
+            });
+        });
+    </script>
 </body>
 </html>

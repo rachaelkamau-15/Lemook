@@ -3,21 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Lemook Gardens</title>
+  <title>Lemook Gardens - Reservation</title>
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/bootstrap.min.css"/>
   <link rel="stylesheet" href="css/style.css"/>
-  <link rel="stylesheet" href="css/classic.css"/>
-  <link rel="stylesheet" href="css/classic.date.css"/>
   <link rel="stylesheet" href="css/responsive.css"/>
   <link rel="stylesheet" href="css/custom.css"/>
+  <!-- Picker.js themes -->
+  <link rel="stylesheet" href="css/classic.css"/>
+  <link rel="stylesheet" href="css/classic.date.css"/>
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 
   <style>
      .floating-socials {
-      position: absolute;
-      top: 100px;
+      position: fixed; /* Use fixed to keep it on screen while scrolling */
+      top: 150px;
       right: 20px;
       display: flex;
       flex-direction: column;
@@ -48,6 +50,24 @@
 
     .floating-socials a:hover {
       transform: scale(1.1);
+    }
+    
+    /* Popup Message Style */
+    .popup {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 15px 25px;
+      background-color: #333;
+      color: white;
+      border-radius: 8px;
+      z-index: 10000;
+      display: none;
+      font-family: sans-serif;
+      font-size: 16px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: top 0.3s ease, opacity 0.3s ease;
     }
   </style>
 </head>
@@ -80,18 +100,18 @@
           <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
         </ul>
       </div>
-
-      <!-- Floating Social Icons -->
-      <div class="floating-socials">
-        <a href="https://wa.me/25722722393" target="_blank"><i class="fa fa-whatsapp"></i></a>
-        <a href="https://facebook.com/lemookbotanical" target="_blank"><i class="fa fa-facebook"></i></a>
-        <a href="https://instagram.com/lemookgarden" target="_blank"><i class="fa fa-instagram"></i></a>
-        <a href="https://www.airbnb.com/rooms/1435456082439519254" target="_blank"><i class="fa fa-home"></i></a>
-        <a href="https://www.booking.com/" target="_blank"><i class="fa fa-bed"></i></a>
-      </div>
     </div>
   </nav>
 </header>
+
+<!-- Floating Social Icons -->
+<div class="floating-socials">
+    <a href="https://wa.me/254722722393" target="_blank"><i class="fa fa-whatsapp"></i></a>
+    <a href="https://facebook.com/lemookbotanical" target="_blank"><i class="fa fa-facebook"></i></a>
+    <a href="https://instagram.com/lemookgarden" target="_blank"><i class="fa fa-instagram"></i></a>
+    <a href="https://www.airbnb.com/rooms/1435456082439519254" target="_blank"><i class="fa fa-home"></i></a>
+    <a href="https://www.booking.com/" target="_blank"><i class="fa fa-bed"></i></a>
+</div>
 
 <!-- Page Title -->
 <div class="all-page-title page-breadcrumb">
@@ -109,9 +129,16 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
+        <div class="heading-title text-center">
+            <h2>Book Your Stay or Event</h2>
+            <p>Select your dates and the type of event to begin the reservation process.</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
         <div class="contact-block">
-          <!-- CORRECTED: Single form tag with action and method -->
-          <form action="https://formsubmit.co/njugunaa61@gmail.com" method="POST">
+          <form id="reservation-form" action="https://formsubmit.co/ajax/njugunaa61@gmail.com" method="POST">
             <div class="row">
               <!-- Booking Details -->
               <div class="col-md-6">
@@ -129,11 +156,11 @@
                 </div>
 
                 <div class="form-group">
-                  <label for="event">Event</label>
-                  <select class="custom-select d-block form-control" id="event" name="event" required data-error="Please select Event">
-                    <option value="" disabled selected>Select Event*</option>
-                    <option value="Weddings">Weddings</option>
+                  <label for="event">Service / Event Type</label>
+                  <select class="custom-select d-block form-control" id="event" name="event" required data-error="Please select an event type">
+                    <option value="" disabled selected>Select Service*</option>
                     <option value="Accommodation">Accommodation</option>
+                    <option value="Weddings">Weddings</option>
                     <option value="Private Events">Private Events</option>
                     <option value="Grounds Hire">Grounds Hire</option>
                     <option value="Team Building">Team Building</option>
@@ -145,7 +172,7 @@
 
               <!-- Contact Details -->
               <div class="col-md-6">
-                <h3>Contact Details</h3>
+                <h3>Your Contact Details</h3>
                 <div class="form-group">
                   <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
                 </div>
@@ -155,12 +182,12 @@
                 <div class="form-group">
                   <input type="tel" class="form-control" id="phone" name="phone" placeholder="Your Phone Number" required>
                 </div>
-                 <!-- Skip CAPTCHA -->
-                          <input type="hidden" name="_captcha" value="false">
-                   <!-- Redirect after submission -->
-                          <input type="hidden" name="_next" value="https://lemookgardens.netlify.app/thank.html">
+                 <!-- Honeypot -->
+                 <input type="text" name="_honey" style="display:none">
+                 <!-- Disable CAPTCHA -->
+                 <input type="hidden" name="_captcha" value="false">
                 <div class="submit-button text-center">
-                  <button class="btn btn-common" type="submit">Book Now</button>
+                  <button class="btn btn-common" id="submit-button" type="submit">Book Now</button>
                 </div>
               </div>
             </div>
@@ -220,8 +247,8 @@
       <div class="col-lg-3 col-md-6">
         <h3>Contact Information</h3>
         <p class="lead">Kapseret, Eldoret, Kenya</p>
-        <p class="lead"><a href="#">+254 722 722 393</a></p>
-        <p><a href="#">info@lemookgardens.com</a></p>
+        <p class="lead"><a href="tel:+254722722393">+254 722 722 393</a></p>
+        <p><a href="mailto:info@lemookgardens.com">info@lemookgardens.com</a></p>
       </div>
       <div class="col-lg-3 col-md-6">
         <h3>Opening Hours</h3>
@@ -237,40 +264,109 @@
   </div>
 </footer>
 
+<!-- Popup message div -->
+<div id="popup-message" class="popup"></div>
+
 <!-- Scripts -->
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<script src="js/form-validator.min.js"></script>
-<script src="js/contact-form-script.js"></script>
 <script src="js/custom.js"></script>
+<!-- Picker.js scripts -->
 <script src="js/picker.js"></script>
 <script src="js/picker.date.js"></script>
 <script src="js/legacy.js"></script>
 
+<!-- Date Picker Logic -->
 <script>
   $(document).ready(function () {
-    // Date picker logic
-    $('#checkin_date').pickadate({
+    // Initialize the checkout picker first but keep it ready.
+    var checkoutPicker = $('#checkout_date').pickadate({
+      format: 'yyyy-mm-dd',
+      min: true // Disallow past dates
+    }).pickadate('picker');
+
+    // Initialize the check-in picker.
+    var checkinPicker = $('#checkin_date').pickadate({
       format: 'yyyy-mm-dd',
       min: true, // Disallow past dates
       onSet: function (context) {
         if (context.select) {
+          // When a check-in date is selected, get its value.
           var checkinDate = new Date(context.select);
-          // Set the minimum checkout date to be one day after the check-in date
-          checkinDate.setDate(checkinDate.getDate() + 1);
-          var picker = $('#checkout_date').pickadate('picker');
-          picker.set('min', checkinDate);
+          
+          // Set the minimum selectable date for the checkout picker to be the check-in date.
+          // This allows same-day bookings.
+          checkoutPicker.set('min', checkinDate);
+
+          // Optional: If the current checkout date is before the new check-in date, clear it.
+          var checkoutDate = new Date(checkoutPicker.get('select', 'yyyy-mm-dd'));
+          if (checkoutDate < checkinDate) {
+              checkoutPicker.clear();
+          }
         }
       }
-    });
-
-    $('#checkout_date').pickadate({
-      format: 'yyyy-mm-dd',
-      min: true // Disallow past dates
-    });
-
+    }).pickadate('picker');
   });
+</script>
+
+<!-- AJAX Form Submission Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('reservation-form');
+        const popup = document.getElementById('popup-message');
+        const submitButton = document.getElementById('submit-button');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            
+            const formData = new FormData(form);
+            const object = {};
+            formData.forEach((value, key) => {
+                object[key] = value;
+            });
+            const json = JSON.stringify(object);
+
+            // Disable button and show sending message
+            submitButton.disabled = true;
+            popup.textContent = 'Sending...';
+            popup.style.backgroundColor = '#f39c12'; // Orange
+            popup.style.display = 'block';
+
+            fetch(form.action, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
+            .then(response => {
+                if (response.ok) return response.json();
+                return response.text().then(text => { throw new Error(text) });
+            })
+            .then(data => {
+                if (data.success === 'true' || data.success === true) {
+                    popup.textContent = 'Booking submitted successfully!';
+                    popup.style.backgroundColor = '#2ecc71'; // Green
+                    form.reset();
+                } else {
+                    throw new Error(data.message || 'Submission failed. Please try again.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                popup.textContent = 'An error occurred. Please try again.';
+                popup.style.backgroundColor = '#e74c3c'; // Red
+            })
+            .finally(() => {
+                submitButton.disabled = false;
+                setTimeout(() => {
+                    popup.style.display = 'none';
+                }, 3000);
+            });
+        });
+    });
 </script>
 </body>
 </html>
